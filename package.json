@@ -1,0 +1,17 @@
+{
+  "name": "day5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "airport-data": "^1.0.1",
+    "all-the-cities": "^2.0.1",
+    "axios": "^0.19.0",
+    "lodash": "^4.17.15"
+  }
+}
