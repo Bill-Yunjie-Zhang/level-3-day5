@@ -6,7 +6,7 @@ const axios = require('axios')
 // console.log(airportsData, citiesData)
 // console.log(citiesData)
 
-const distance = function (lat1, lon1, lat2, lon2, unit) {
+const distance = (lat1, lon1, lat2, lon2, unit) => {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
 		return 0;
 	}
@@ -53,11 +53,11 @@ const distance = function (lat1, lon1, lat2, lon2, unit) {
 // })
 // console.log(updatedScores1)
 
-const checkAirports = function(city){
-    const city1 = citiesData.find(e => e.name === city)
+const checkAirports = (city) => {
+    const city1 = citiesData.find(e => e.name.toLowerCase() === city.toLowerCase())
     // console.log(city1)
 
-    const distances = airportsData.map(function(o){
+    const distances = airportsData.map((o) => {
         let d = {
             name: o.name,
             lat: o.latitude,
@@ -77,7 +77,7 @@ const checkAirports = function(city){
 const checkAirportsWeather = function(city, unit){
     const airportData = checkAirports(city)
     axios.get("https://api.openweathermap.org/data/2.5/weather?lat=" + airportData.lat + "&lon=" + airportData.lon + "&appid=eda439d629165a345559e6e9043cf085&units=" + unit)
-        .then(function(response){
+        .then((response) => {
             // console.log(response);
             const data = response.data
             // console.log("main", data)
@@ -85,8 +85,8 @@ const checkAirportsWeather = function(city, unit){
             const temp = main.temp
             console.log('The weather at "' + airportData.name + '" is ' + temp + "F")
         })
-        .catch(function (error) {
-            // console.log(error)
+        .catch((error) => {
+            console.log(error)
         })
 }
 // console.log(checkAirports("Chengdu"))
