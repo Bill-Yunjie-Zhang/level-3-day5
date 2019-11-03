@@ -74,9 +74,9 @@ const checkAirports = function(city){
     return sorted[0]
 }
 
-const checkAirportsWeather = function(city){
+const checkAirportsWeather = function(city, unit){
     const airportData = checkAirports(city)
-    axios.get("https://api.openweathermap.org/data/2.5/weather?lat=" + airportData.lat + "&lon=" + airportData.lon + "&appid=eda439d629165a345559e6e9043cf085&units=imperial")
+    axios.get("https://api.openweathermap.org/data/2.5/weather?lat=" + airportData.lat + "&lon=" + airportData.lon + "&appid=eda439d629165a345559e6e9043cf085&units=" + unit)
         .then(function(response){
             // console.log(response);
             const data = response.data
@@ -90,4 +90,4 @@ const checkAirportsWeather = function(city){
         })
 }
 // console.log(checkAirports("Chengdu"))
-checkAirportsWeather("Seattle")
+checkAirportsWeather("Chengdu", "imperial")
